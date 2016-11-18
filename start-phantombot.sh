@@ -64,5 +64,6 @@ else
 fi
 
 chmod +x /launch-service.sh
+chmod +x /data/PhantomBot/launch-service.sh
 
 /data/PhantomBot/launch-service.sh
