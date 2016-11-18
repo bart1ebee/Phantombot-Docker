@@ -38,7 +38,7 @@ else
 	#read version file
 	curr_ver=$(<"/data/PhantomBot/version.txt")
 	#upgrade if needed
-	if [ $version < $curr_ver ]; then 
+	if [ $version > $curr_ver ]; then 
 		echo upgrading
 		download_ver $version
 		#Backup config and DB
