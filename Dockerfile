@@ -14,6 +14,7 @@ COPY ./botlogin.txt /
 RUN apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN chmod +x /start-phantombot.sh
+RUN chmod +x /launch-service.sh
 
 EXPOSE 25000 25001 25002 25005
 
