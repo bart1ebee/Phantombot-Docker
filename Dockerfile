@@ -1,21 +1,15 @@
-FROM java:8
+FROM openjdk:8-jre-alpine
 
-MAINTAINER Bart1ebee
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  unzip \
-  curl \
-  wget \
-  && apt-get clean
-
-RUN mkdir -p /data
 COPY ./start-phantombot.sh /
 COPY ./botlogin.txt /
-RUN apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-RUN chmod +x /start-phantombot.sh
+RUN apk add --no-cache bash curl \
+  && mkdir -p /data \
+  && chmod +x /start-phantombot.sh \
+  && sync \
+  && /start-phantombot.sh dontrun
 
-EXPOSE 25000 25001 25002 25005
+EXPOSE 25000 25001 25002 25003 25004 25005
 
 VOLUME ["/data"]
 
